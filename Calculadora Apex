@@ -1,0 +1,48 @@
+public class Calculadora {
+	
+    // PARAMETROS
+    // Retorne o valor da soma
+    // return
+    // Criou uma função chamada somar 
+    // Retorna um valor do tipo Integer
+    // 2 Parametros do tipo Integer
+    public static Integer somar(Integer n1, Integer n2){
+        Integer resultado = n1+n2;
+        // Chega no return
+        return resultado;
+    }
+    
+    public static Integer sub(Integer n1, Integer n2){
+        return n1-n2;
+    }
+    
+    // void > Não vou retornar nada
+    public static void mult(Integer n1, Integer n2){
+		Integer result = n1*n2;
+    }
+    
+    // Vou te retornar um inteiro
+    public static Integer div(Integer n1, Integer n2){
+		
+         if(n2 == 0 ){
+             System.debug('Não é possível dividir por 0');
+             return null;
+         }else{
+             System.debug(n1/n2);
+             return n1/n2;
+         }
+    }
+    
+    
+    // metodo para adivinhar o ano de nascimento
+    public static Integer retornaAnoNascimento(Integer idade){
+        return 2022 - idade;
+    }
+	
+    public static datetime horaIntervalo (integer a){
+        datetime intervalo =  System.now().addMinutes(a);
+        System.debug('A hora da volta é: ' +intervalo.format('HH:mm'));
+        return intervalo;
+    } 
+ 
+}
