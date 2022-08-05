@@ -1,0 +1,196 @@
+public class Calango {
+
+    // Nome  - String
+    // Peso  - Decimal
+    // Raça  - String
+    // Idade - Integer
+    // Cor   - String 
+    
+	public String nome; 
+	public String raca;
+  public String cor;
+	public Integer idade;
+  public Decimal peso;
+	
+    //Ações e Funções
+    public void dormir(){
+      system.debug('ZzzzzZzzZZZ');
+}
+    public void apresentar(){
+      	system.debug('Meu nome é '+nome);
+        system.debug('Eu tenho: '+idade);
+        system.debug('Sou da raça dos '+raca);
+        system.debug('e eu peso '+peso+' tá vendo? Eu sou magrin.');
+}   
+    public void darmortal(){
+      system.debug('Flip');
+}
+}
+
+---------------------------------------------------------
+
+Calango Calango01  = new Calango();
+Calango01.nome     = 'Washghinton';
+Calango01.raca     = 'Massupilame';
+Calango01.cor      = 'marrom';
+Calango01.idade    = 7;
+Calango01.peso     = 2.75;
+
+system.debug(Calango01);
+
+Calango Calango02  = new Calango();
+Calango02.nome     = 'Klebinho';
+Calango02.raca     = 'Massupilanês';
+Calango02.cor      = 'amarelo';
+Calango02.idade    = 5;
+Calango02.peso     = 7.45;
+
+system.debug(Calango02);
+
+Calango Calango03  = new Calango();
+Calango03.nome     = 'João';
+Calango03.raca     = 'Cerrado';
+Calango03.cor      = 'meioamarelo,meioroxo';
+Calango03.idade    = 12;
+Calango03.peso     = 10.13;
+ 
+system.debug(Calango03);
+// Nome do objeto que queremos executar + função para fazer
+Calango03.dormir();   
+Calango03.darmortal();   
+
+
+Calango03.apresentar();
+Calango02.apresentar();
+Calango01.apresentar();
+
+---------------------------------------------------------
+
+public class Calculadora {
+
+    // PARAMETROS
+    public void somar(decimal n1, decimal n2){
+    decimal resultado = n1+n2;
+      
+    system.debug('O Resultado é: '+resultado);
+}
+    public void subtrair(decimal n1, decimal n2){
+    decimal resultado = n1-n2;
+      
+    system.debug('O Resultado é: '+resultado);
+}
+    public void multiplicacao(decimal n1, decimal n2){
+    decimal resultado = n1*n2;
+      
+    system.debug('O Resultado é: '+resultado);
+}
+    public void divisao(decimal n1, decimal n2){
+    decimal resultado = n1/n2;
+      
+    system.debug('O Resultado é: '+resultado);
+}   
+}
+
+-----------------------------------------------------------------------
+
+public class Calculadora {
+
+    // PARAMETROS
+    // Retorne o valor da soma 
+    // return
+    // Criou uma função chamada somar
+    // Retorna um valor do tipo integer, 2 parametros do tipo Decimal
+    public Decimal somar(decimal n1, decimal n2){
+    decimal resultado = n1+n2;
+      
+    return resultado;        
+}
+}
+
+Calculadora  novoCalc = new Calculadora();
+
+decimal resultadoSoma1 = novoCalc.somar(3,7);
+decimal resultadoSoma2 = novoCalc.somar(10,10);
+decimal resultadoFinal = resultadoSoma1+resultadoSoma2;
+
+system.debug('O seu resultado das somas é: '+resultadoFinal);
+
+-------------------------------------------------------------------------------
+
+public class Calculadora {
+
+    // PARAMETROS
+    // Retorne o valor da soma 
+    // return
+    // Criou uma função chamada somar
+    // Retorna um valor do tipo integer, 2 parametros do tipo Decimal
+    public Decimal somar(decimal n1, decimal n2){
+    Decimal resultado = n1+n2;
+      
+    return resultado;       
+}
+    public Decimal subtrair(decimal n1, decimal n2){
+    Decimal resultado = n1-n2;
+    
+    return resultado; 
+}
+    public Decimal multiplicacao(decimal n1, decimal n2){
+    Decimal resultado = n1*n2;
+      
+	return resultado;
+}
+    public Decimal divisao(decimal n1, decimal n2){
+    Decimal resultado = n1/n2;
+	
+    return resultado;      
+}   
+}
+
+Calculadora  novoCalc = new Calculadora();
+
+decimal resultadoSoma1 = novoCalc.somar(3,7);
+decimal resultadoSoma2 = novoCalc.somar(10,10);
+decimal resultadoFinalSoma = resultadoSoma1 + resultadoSoma2;
+
+system.debug('O seu resultado das somas é: '+resultadoFinalSoma);
+
+decimal resultadoSub1 = novoCalc.subtrair(3,7);
+decimal resultadoSub2 = novoCalc.subtrair(10,2);
+decimal resultadoFinalSub = resultadoSub1 - resultadoSub2;
+
+system.debug('O seu resultado das subtrações é: '+resultadoFinalSub);
+
+decimal resultadoMult1 = novoCalc.multiplicacao(3,7);
+decimal resultadoMult2 = novoCalc.multiplicacao(10,2);
+decimal resultadoFinalMult = resultadoMult1 * resultadoMult2;
+
+system.debug('O seu resultado das multiplicacões é: '+resultadoFinalMult);
+
+decimal resultadoDiv1 = novoCalc.divisao(3,7);
+decimal resultadoDiv2 = novoCalc.divisao(10,2);
+decimal resultadoFinalDiv = resultadoDiv1 / resultadoDiv2;
+
+system.debug('O seu resultado das divisão é: '+resultadoFinalDiv);
+
+-----------------------------------------------------------------------------------------------
+
+public class Calculadora {
+
+    public Decimal div(decimal n1, decimal n2){
+    
+        if(n2 == 0){ 
+        System.debug('Não é possivel dividir por 0');
+        return 0; 
+         
+       }else{
+        System.debug('Sua divisão é: '+n1/n2);   
+        return n1/n2;       
+       		} 
+		}
+}
+
+
+Calculadora  novoCalc = new Calculadora();
+decimal resultado = novoCalc.div(10,2);
+
+-------------------------------------------------------------------------------------------------
