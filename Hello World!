@@ -1,0 +1,2 @@
+// Remember to put ";"
+System.debug('Hello World!');
