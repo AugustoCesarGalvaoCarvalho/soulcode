@@ -1,0 +1,32 @@
+Account newAcc = new Account();
+
+newAcc.Name = 'Sandbax';
+
+insert newAcc;
+
+--------------------
+
+Contact newContact = new Contact();
+
+newContact.LastName = 'Person';
+newContact.FirstName = 'Hammer';
+
+insert newContact
+
+-------------------
+
+Despesa__c itemDesp     = new Despesa__c();
+
+itemDesp.Tipo__c  		= 'Alimentação';
+itemDesp.Valor__c 		= 4000;
+itemDesp.RecordTypeId 		= '0128Z000000ZXJ7QAO';
+    
+insert itemDesp;
+
+------------------
+
+Lead novoLead = new Lead();
+novoLead.LastName = 'Ewer';
+novoLead.Company = 
+
+insert meuLeadTOP;

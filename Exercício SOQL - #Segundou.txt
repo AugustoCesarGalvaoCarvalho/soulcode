@@ -1,0 +1,107 @@
+1) Selecione o nome, valor e data de fechamento das oportunidades.
+
+SELECT Id, name, FORMAT(CloseDate)
+FROM Opportunity
+
+2) Selecione o nome e valor das oportunidades com data de fechamento maior que 01/06/2021.
+
+SELECT Id, name, FORMAT(Amount), FORMAT(CloseDate)
+FROM Opportunity
+WHERE CloseDate >= 2021-06-01
+
+3) Selecione o nome da oportunidade, valor, descrição e next step das oportunidades com fase Closed won e valor acima de 100000.
+
+SELECT Id, name, FORMAT(Amount), Description, NextStep
+WHERE StageName = 'Closed Won' 
+AND Amount >= 100000
+
+4) Selecione o nome, classificação, tipo, ano de início das contas que possuam ‘Uni’ no começo do nome da conta.
+
+SELECT Id, name, Rating, Type, YearStarted
+FROM Account
+WHERE Name LIKE 'Uni%'
+
+5) Selecione o nome completo, empresa e email dos leads com ‘.net’ no final do email e status do lead como Working - Contacted.
+
+SELECT Id, Name, Company, Email
+FROM Lead
+WHERE Email LIKE '%.net'
+AND Status = 'Working - Contacted'
+
+8) Selecione o nome, valor, fase, next step e descrição das oportunidades que possuem ‘Oil’ ou ‘Gene’ em qualquer parte do nome.
+
+SELECT Id, Name, FORMAT(Amount), StageName, NextStep, Description
+FROM Opportunity
+WHERE Name LIKE '%Oil%' 
+OR Name LIKE '%Gene%'
+
+9) Selecione todas as despesas sem valor, junto com o nome do cliente relacionado, ordenadas alfabeticamente.
+
+SELECT Id, Name, FORMAT(Valor__c), Conta__r.Name	
+FROM Despesa__c
+WHERE Valor__c = NULL
+ORDER BY Conta__r.Name ASC
+
+ou
+
+SELECT Id, Name, Valor__c, Conta__c
+FROM Despesa__c 
+WHERE Valor__c =NULL
+ORDER BY Name ASC
+
+10) Selecione o nome, telefone de contas e o nome, valor e fase das oportunidades ligadas a cada conta.
+
+SELECT Id, Name, StageName, Amount, Account.Name, Account.Phone
+FROM Opportunity
+
+11) Selecione os emails repetidos em lead.
+
+SELECT Email, COUNT(id)
+FROM Lead
+GROUP BY Email
+HAVING COUNT(Id) > 1
+
+12) Selecione as despesas em que as contas sejam clientes VIPs.
+
+SELECT Id, Name, Conta__r.Name
+FROM Despesa__c
+WHERE Conta__r.VIP__c = TRUE
+
+13) Selecione os clientes agrupados pelo ramo de empresa que possuem uma renda anual maior que 1000 reais.
+
+SELECT Industry, COUNT (id)
+FROM Account
+WHERE AnnualRevenue > 1000
+GROUP BY Industry
+
+14) Selecione todas as oportunidades em que os clientes tenham sido criado no mês de julho.
+
+SELECT Id, Name
+FROM Opportunity
+WHERE CreatedDate = LAST_MONTH
+
+ou
+
+SELECT ID, Name, FORMAT (Account.CreatedDate)
+FROM Opportunity
+WHERE Account.CreatedDate = LAST_MONTH
+
+15) Selecione os usuários que fizeram login no sistema, no ultimo mês.
+
+SELECT UserId, COUNT(Id) 
+FROM LoginHistory 
+WHERE LoginTime = LAST_MONTH
+
+ou
+
+SELECT FORMAT(LastLoginDate)
+FROM User
+WHERE LastLoginDate = LAST_MONTH
+
+
+16) Selecione os leads que foram atualizados por um usuário com perfil de administrador do sistema no mês atual.
+
+SELECT Name, LastModifiedBy.Name
+FROM Lead
+WHERE LastModifiedBy.Profile.Name = 'Administrador do Sistema' 
+AND LastModifiedDate = THIS_MONTH

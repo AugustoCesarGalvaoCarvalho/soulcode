@@ -1,0 +1,148 @@
+Códigos de LIST, SET e MAP
+
+
+/*
+// 5 variaveis do tipo de Data
+date data1 = date.newInstance(2002, 11, 12);
+date data2 = date.newInstance(2003, 12, 05);
+date data3 = date.newInstance(2005, 05, 08);
+date data4 = date.newInstance(1996, 12, 06);
+date data5 = date.newInstance(2022, 04, 01);
+
+// Criando uma coleção do tipo SET do tipo Data
+Set<date> data = new Set<date>();
+
+data.add(data1);
+data.add(data2);
+data.add(data3);
+data.add(data4);
+data.add(data5);
+
+// Imprimo os valores que estão nessa coleção
+system.debug(data);
+
+// Imprimo os valores que estão nessa coleção
+
+// SET > NÃO TEM INDICE
+// List > list[0] list [1]
+data.remove(data2);
+data.remove(data3);
+
+// Imprime a coleção deois de ser retirada
+system.debug(data); */
+
+/*
+list<date> datas=new date[5];
+datas[0] = date.newInstance(2001, 1, 1);
+datas[1] = date.newInstance(2002, 2, 3);
+datas[2] = date.newInstance(2003, 3, 3);
+datas[3] = date.newInstance(2004, 4, 4);
+datas[4] = date.newInstance(2005, 5, 5);
+system.debug(datas);
+datas.remove(4);
+datas.remove(3);
+system.debug(datas); */
+
+
+/*
+List<String> datas = new List<string>();
+
+for (Integer count = 0; count <= 10; count++) {
+    datas.add(system.today());
+}
+System.debug(datas); */
+
+/*
+list<date> semanaDias = new list<date>();
+for(integer i=0; i<=6; i++){   
+	date comeco = date.today()+i;
+	semanaDias.add(comeco);	
+}
+system.debug(semanaDias); */
+
+// Map < TipoDeDadoChave, TipoDeDadoValor > nomeVariavel = New Map <TipoDeDadoChave, TipoValor>();
+  //         Chave      ,    Valor  
+ 
+/*Map<String, String> mapNomeIdade = new Map<String, String>();
+
+mapNomeIdade.put('Ash Ketchum',' 17 Anos');
+mapNomeIdade.put('Ronaldinho Fenômeno',' 57 Anos');
+mapNomeIdade.put('Clarice Lispector',' 57 Anos');
+String code = mapNomeIdade.get('Ash Ketchum');
+	  
+System.debug(code);  */
+
+
+
+
+/*
+//Declarou a variavel
+Map<String, String> colorCodes = new Map<String, String>();
+
+//Inserindo valores dentro do MAP
+//Codigo Hexadecimal de cores
+colorCodes.put('Red', 'FF0000');
+colorCodes.put('Blue', '0000A0');
+
+//Crio uma variavel chamada code do tipo String
+//Dentro do map ColorCodes pega o valor relacionado a blue
+String code = colorCodes.get('Blue');
+
+System.debug();
+
+
+
+//  Map com Banda e Genero
+Map<String, String> mapBeG = new Map<String, String>();
+
+mapBeG.put('Bom Jovi',' Rock');
+mapBeG.put('Tim Maia',' MPB');
+mapBeG.put('Mastruz com Leite',' Forró');
+//String code = mapBeG.get('Tim Maia');
+	  
+System.debug(mapBeG);   */
+
+/*
+// Map de Nome e Data Nascimento
+Map<String, Date> NomeEData = new Map<String, Date>();
+
+NomeEData.put('Don Ruan', Date.newInstance(1990,12,20));
+NomeEData.put('Tom Calvancanti', Date.newInstance(1984,04,09));
+NomeEData.put('Carlão do Brega', Date.newInstance(1980,10,17));
+//Date code = NomeEData.get('Carlão do Brega');
+	 
+System.debug(NomeEData);  // ou também posso botar dentro do system.debug(NomeEData.get('Carlão do Brega')) em vez do code */
+
+//mapData.put('Carai', Date.newInstance(2022,12,28)); */
+ 
+/*
+// Map de Produtos numa Lojinha
+Map<string, decimal> ProdutoeLoja = new Map<String, decimal>();
+
+ProdutoeLoja.put('Frutaria',99.5 );
+ProdutoeLoja.put('InfoProdutos',55.38);
+ProdutoeLoja.put('Frigorífico',101.77 );
+//decimal code = ProdutoeLoja.get('Frutaria');
+	  
+System.debug(ProdutoeLoja); */
+
+/*
+map<string, string> produtosdaLoja = new map<string, string>();
+
+decimal valordonescau = 10.7;
+decimal valordorefrigerante = 8.5;
+decimal valordoarroz = 4.4;
+
+produtosdaLoja.put('Nescau','Esse produto custa: R$ ' + valordonescau);
+produtosdaLoja.put('Refrigerante','Esse produto custa: R$ '+ valordorefrigerante);
+produtosdaLoja.put('Arroz','Esse produto custa: R$ ' + valordoarroz);
+
+system.debug(produtosdaLoja.get('Nescau'));
+system.debug(produtosdaLoja.get('Refrigerante'));
+system.debug(produtosdaLoja.get('Arroz')); */
+
+
+
+
+
+

@@ -1,0 +1,236 @@
+((1)). 		Defina uma lista de bandas favoritas
+		Remova os 2 últimos valores
+		Adicione outros 3 Valores após 
+
+Set<String> BandasFav = new Set <String>{'Angra', 'Stratovarius','Bon Jovi'};
+System.debug(BandasFav);
+
+BandasFav.remove('Stratovarius');
+BandasFav.remove('Bon Jovi');
+System.debug(BandasFav);
+
+BandasFav.add('Limão com Mel');
+BandasFav.add('Radiohead');
+System.debug(BandasFav);
+------------------------------------------------------------ ou pode ser ------------------------------------------------------------
+st<string> bandas =new string[5];
+bandas[0] = 'Guns';
+bandas[1] = 'Nirvana';
+bandas[2] = 'Ozzy';
+bandas[3] = 'CPM 22';
+bandas[4] = 'Mamonas';
+
+system.debug(bandas);
+
+bandas.remove(4);
+bandas.remove(3);
+
+system.debug(bandas);
+
+bandas.add('Slipknot');
+bandas.add('Korn');
+
+system.debug(bandas)
+
+
+((2)). 		Crie uma lista com 8 índices já pré-definidos.
+		Coloque um valor aleatório como 3 posição.
+		Adicione uma nova posição com um valor aleatório
+		Remova o valor da nova posição 
+
+Set<String> ValorAleatorios = new Set <String>{'10', '20', '30', '40', '50', '60', '70', '80'};
+System.debug(ValorAleatorios);
+
+ValorAleatorios.add('90');
+System.debug(ValorAleatorios);
+
+ValorAleatorios.remove('30');
+System.debug(ValorAleatorios); 
+-------------------------------------------------------- ou também pode ser ----------------------------------------------------------
+List<String> comidasFavoritas = new String[8];
+System.debug(comidasFavoritas);
+
+comidasFavoritas.set(2, 'strogonoff de brócolis');
+System.debug(comidasFavoritas);
+
+comidasFavoritas.set('purê de batata');
+System.debug(comidasFavoritas);
+
+comidasFavoritas.remove(8);
+System.debug(comidasFavoritas);
+
+
+((3)). 	Crie uma lista com numeros pares (Utilizando loop)
+
+Set<String> numerosPares = new Set <String>{'2','4','6'};
+    for (Integer count = 0; count <= 14; count++) {
+    System.debug(numerosPares); 
+}  
+-------------------------------------------------------ou também pode ser--------------------------------------------------------------
+list<integer> lista = new list<integer>();
+
+for(integer i=0;i<100;i++){
+    if(Math.mod(i,2)==0){
+        lista.add(i);
+    }
+}
+system.debug(lista);
+---------------------------------------------------------ou também pode ser------------------------------------------------------------
+List<Integer> listaNumerosPares = new List <Integer>();
+	For(Integer contador = 2; contador <=20; contador+=2){
+    	listaNumerosPares.add(contador);
+}
+    System.debug(listaNumerosPares);
+
+
+((3)). (A) 		Mostre valores de 33 a 333 de 3 em 3.
+
+List<integer> numeros33a333 = new List <integer>();
+    for (Integer count = 33; count <= 333; count+=3){
+    numeros33a333.add(count);
+}
+System.debug(numeros33a333);
+------------------------------- ou também pode ser----------------------------------------
+List<integer> minhaListaDeTresEmTres = new List <integer> ();
+	for( Integer ContNumTresEmTres = 33; ContNumTresEmTres <= 333; ContNumTresEmTres +=3){ 
+	System.debug(ContNumTresEmTres);
+    	minhaListaDeTresEmTres.add(ContNumTresEmTres);}
+	system.debug(MinhaListaDeTresEmTres);
+
+
+((3)). (B) 		Usando while, mostre valores de 0 a 100 de 10 em 10.
+
+List<integer> mostreValores0a100 = new List <integer>();
+
+Integer count = 0;
+While (count <= 100){
+    count+=10;
+    mostreValores0a100.add(count); 
+}
+System.debug(mostreValores0a100);
+
+
+((3)). (C) 		Usando o do-while, mostre valores de 70 a 0.
+
+Integer count = 70;
+Do{
+    System.debug(count);
+    count--;
+}While(count >= 0); 
+
+
+((4)). 			Crie uma Lista  de valores String com 8 nome de séries. Mostre em formato de ranking esses valores da lista. 
+Ex: As mais assistidas.
+1 - série x
+2 - série y
+.
+8 - série w 
+
+List<string> Series = new List<string>(8);
+
+Series.set(0,'1 - Arrow');
+Series.set(1,'2 - Flash');
+Series.set(2,'3 - Lost');
+Series.set(3,'4 - Supergirl');
+Series.set(4,'5 - Superman');
+Series.set(5,'6 - Gotham');
+Series.set(6,'7 - Suits'); 
+Series.set(7,'8 - StarTrek');
+
+for (integer count = 0; count <= 7; count++){
+    System.debug(Series.get(count));
+}  
+-----------------------------------------------------------------------também pode ser---------------------------------------------------------
+List<String> series = new List<String>{'Gilmore Girls', 'The Big Bang Theory', 'Round 6', 'Stranger Things',
+'This Is Us', 'All of Us Are Dead', 'Peaky Blinders','Flash'};
+
+System.debug('1 - ' + series[0]);
+System.debug('2 - ' + series[1]);
+System.debug('3 - ' + series[2]);
+System.debug('4 - ' + series[3]);
+System.debug('5 - ' + series[4]);
+System.debug('6 - ' + series[5]);
+System.debug('7 - ' + series[6]);
+System.debug('8 - ' + series[7]);
+--------------------------------------------------------------------também pode ser-----------------------------------------------------------
+Map<String,String>series = Map new<String, String>();
+
+series.put('7','Stranger Things');
+series.put('1','Azul é a Cor mais Quente');
+series.put('4','Pliki Blaidi ');
+series.put('3','A quimica do Mal');
+series.put('2','Tchikitchitas');
+series.put('6','As visões da Raven');
+series.put('5','Alf o E.Teimoso');
+series.put('0','Arnold');
+
+system.debug('Ranking Series: '+series)
+
+
+((5)). 		Crie uma Lista com os seguintes valores (A, B, C, D, E, F). Baseado nas posições dessa lista, imprima as seguintes palavras.
+		a) FACA
+		b) BABA
+		C) FADA
+		d) ACABADA */
+
+
+List<string> Nome = new List<string>(6);
+
+Nome.add(0, 'A');
+Nome.add(1, 'B');
+Nome.add(2, 'C');
+Nome.add(3, 'D');
+Nome.add(4, 'E');
+Nome.add(5, 'F');
+
+system.debug('O nome da letra a) '+Nome.get(5)+Nome.get(0)+Nome.get(2)+Nome.get(0));
+system.debug('O nome da letra b) '+Nome.get(1)+Nome.get(0)+Nome.get(1)+Nome.get(0));
+system.debug('O nome da letra c) '+Nome.get(5)+Nome.get(0)+Nome.get(3)+Nome.get(0));
+system.debug('O nome da letra d) '+Nome.get(0)+Nome.get(2)+Nome.get(0)+Nome.get(1)+Nome.get(0)+Nome.get(3)+Nome.get(0));
+-------------------------------------------------------- e também pode ser---------------------------------------------------------------------
+List<String> soletrando = new String[6];
+soletrando[0]='A';
+soletrando[1]='B';
+soletrando[2]='C';
+soletrando[3]='D';
+soletrando[4]='E';
+soletrando[5]='F';
+
+
+String faca = (soletrando[5]+soletrando[0]+soletrando[2]+soletrando[0]);
+String baba = (soletrando[1]+soletrando[0]+soletrando[1]+soletrando[0]);
+String fada = (soletrando[5]+soletrando[0]+soletrando[3]+soletrando[0]);
+String acabada = (soletrando[0]+soletrando[2]+soletrando[0]+soletrando[1]+soletrando[0]+soletrando[3]+soletrando[0]);
+
+((6)). 		Crie um Map com chave e valores String. Com os valores abaixo, respectivamente:
+
+key - valor
+empresa - mamaco corp
+ceo - romero brito
+valor - 8000000
+cnpj - 1233210001-99
+
+
+Com o Map criado mostre a seguinte frase, através das chaves e valores: (obs *indica os valores existentes no map*)
+A empresa *mamaco corp* alcançou o valor de mercado de *8000000*. O CEO *romero brito* declarou ser o primeiro passo para dominar o mundo.*/
+
+Map<string, string> dados = new Map<string, string>();
+
+dados.put('Empresa', 'Mamaco Corp');
+dados.put('Ceo', 'Romero Brito');
+dados.put('Valor', '8000000');
+dados.put('Cnpj', '1233210001-99');
+
+system.debug('A empresa '+ dados.get('Empresa') + ' alcançou o valor de mercado de '+ dados.get('Valor') + '.' + ' O CEO ' + dados.get('Ceo')+ ' ser o primeiro passo para dominar o mundo.');
+-------------------------------------------------------- e também pode ser---------------------------------------------------------------------
+List<String> chave = new List<String>{'empresa', 'ceo', 'valor', 'cnpj'};
+List<String> valor = new List<String>{'mamaco corp', 'romero brito', '8000000', '1233210001-99'};
+
+Map<String, String> chaveValor = new Map<String, String>();
+for(Integer count = 0; count <= 3; count++) {
+    chaveValor.put(chave[count], valor[count]);
+}
+Set <String> chaveKeySet = new Set<string>();
+chaveKeySet = chaveValor.keySet();
+
+

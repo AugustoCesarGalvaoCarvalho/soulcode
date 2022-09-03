@@ -1,0 +1,158 @@
+// --Apex com SOQL--
+
+// 1) Imprima no apex o nome, empresa, estado/província e email de todos os leads que pertencem aos estados CA ou VA, ordenados pelo nome de forma decrescente.
+
+List <Lead> lstLead = [SELECT id, Name, Company, State, Email  
+                       FROM Lead 
+                       WHERE State = 'CA' OR State = 'VA'
+                       ORDER BY State DESC];
+System.debug(lstLead);
+
+// 2) Imprima no apex o nome e status dos leads com status “working” e os “not contacted” e que possuam ‘Co’ em qualquer parte do nome'.
+
+List <Lead> attLead = [SELECT Name, Status 
+                       FROM Lead 
+                       WHERE (Status = 'Working - Contacted' OR Status = 'Open - Not Contacted')
+                       AND Name LIKE '%Co%'];
+
+System.debug(attLead);
+
+// 3) Imprima no apex o nome, cargo e telefone dos contatos que possua United ou Ltd em qualquer parte do nome da conta.
+
+List <Contact> LstContact = [SELECT Id, Name, Title, Phone
+                       		 FROM Contact
+                       		 WHERE Account.Name LIKE '%United%' 
+                             OR Account.Name LIKE '%Ldt%'];
+
+System.debug(LstContact);
+
+// 4) Imprima em apex o nome, phone, rating, data de criação das contas ordenados por data de criação decrescente, mostrando também o nome e telefone dos contatos ordenados por nome ligados a cada uma das contas.
+
+SELECT Id, Name, Phone, Rating, CreatedDate, 
+( SELECT Id, Name, Phone    
+FROM Contacts ) 
+FROM Account
+ORDER BY CreatedDate DESC
+
+// 5 ) Com Apex, insira 5 leads atribuindo valores aos campos considerados obrigatórios. 
+
+Lead L1 = new Lead(FirstName = 'Gabriel', LastName = 'Ouro', Company = 'Restaurante Gifara', Status = 'Open - Not Contacted');
+Lead L2 = new Lead(FirstName = 'Gabriel I', LastName = 'Copas', Company = 'Restaurante Gifara', Status = 'Open - Not Contacted');
+Lead L3 = new Lead(FirstName = 'Gabriel II', LastName = 'Espada', Company = 'Restaurante Gifara', Status = 'Open - Not Contacted');
+Lead L4 = new Lead(FirstName = 'Gabriel III', LastName = 'Paus', Company = 'Restaurante Gifara', Status = 'Open - Not Contacted');
+Lead L5 = new Lead(FirstName = 'Gabriel IV', LastName = 'Coringa', Company = 'Restaurante Gifara', Status = 'Open - Not Contacted');
+    
+List <Lead> novosLEAD = new List <Lead>();
+ 
+novosLEAD.add(L1);
+novosLEAD.add(L2);
+novosLEAD.add(L3);
+novosLEAD.add(L4);
+novosLEAD.add(L5);
+
+insert novosLEAD;
+
+// 6) Com Apex, insira 5 Contas atribuindo valores aos campos considerados obrigatórios. 
+
+Account a1 = new Account(Name = 'Washgton');
+Account a2 = new Account(Name = 'Cleitonia');
+Account a3 = new Account(Name = 'Kaikosvisk');
+Account a4 = new Account(Name = 'Elton');
+Account a5 = new Account(Name = 'Júlianin');
+    
+List <Account> novasCONTAS = new List <Account>();
+ 
+novasCONTAS.add(a1);
+novasCONTAS.add(a2);
+novasCONTAS.add(a3);
+novasCONTAS.add(a4);
+novasCONTAS.add(a5);
+
+insert novasCONTAS;
+
+// 7) Com Apex, insira uma lista de 10 Contas com valores obrigatórios, utilizando apenas um insert.
+
+Account a1 = new Account(Name = 'Washgton');
+Account a2 = new Account(Name = 'Cleitonia');
+Account a3 = new Account(Name = 'Kaikosvisk');
+Account a4 = new Account(Name = 'Elton');
+Account a5 = new Account(Name = 'Júlianin');
+Account a6 = new Account(Name = 'Robin');
+Account a7 = new Account(Name = 'Pedrão');
+Account a8 = new Account(Name = 'Ana');
+Account a9 = new Account(Name = 'Williane');
+Account a10 = new Account(Name = 'Karolyne');
+    
+List <Account> novasCONTAS = new List <Account>();
+ 
+novasCONTAS.add(a1);
+novasCONTAS.add(a2);
+novasCONTAS.add(a3);
+novasCONTAS.add(a4);
+novasCONTAS.add(a5);
+novasCONTAS.add(a6);
+novasCONTAS.add(a7);
+novasCONTAS.add(a8);
+novasCONTAS.add(a9);
+novasCONTAS.add(a10);
+
+insert novasCONTAS;
+
+// 8) Com Apex, atualize 3 registros de conta de sua escolha alterando valores dos campos nome, telefone e classificação.
+
+List<Account> attConta = [SELECT Id, Name, Phone, Rating
+                          FROM Account 
+                          WHERE Rating = 'Hot'
+                          LIMIT 3];
+
+for(Account unidConta : attConta){
+    unidConta.Rating = 'Cold';
+    unidConta.Phone = '9 9805-2559';
+    unidConta.Name = 'Ximbinha';
+    
+    update unidConta;
+}
+
+// 9) Com Apex, atualize o estado/província de cobrança para CE de todas as contas que possuem o estado/província vazios.
+
+List<Account> listaConta = [SELECT BillingState 
+                            FROM Account
+                            WHERE BillingState = Null ];
+
+for(Account minhaConta : listaConta){
+    minhaConta.BillingState = 'CE';
+
+    update minhaConta;
+    }
+
+Ou
+
+List<Account> listaConta = [SELECT BillingState FROM Account];
+
+for(Account minhaConta : listaConta){
+    if(minhaConta.BillingState == null){
+        minhaConta.BillingState = 'CE';
+        
+        update minhaConta;
+    }
+}
+
+// 10) Delete 3 registros de sua escolha em Despesa e Projeto
+
+List <Projeto__c> delProjeto = [SELECT Id, Name, Etapa__c
+                              FROM Projeto__c
+                              WHERE Etapa__c = 'Implantação'
+                              LIMIT 3];
+    
+delete delProjeto;
+
+e 
+
+List <Despesa__c> delDespesa = [SELECT Id, Name, Tipo__c
+                                FROM Despesa__c
+                                WHERE Tipo__c = 'Sem descrição'
+                                LIMIT 3];
+    
+delete delDespesa;
+    
+

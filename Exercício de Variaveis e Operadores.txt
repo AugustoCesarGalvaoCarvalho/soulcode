@@ -1,0 +1,43 @@
+/* 1ª questão: Escreva um algoritmo que defina  um valor inteiro e escreva na tela seu valor.
+Integer valorInteiro= 999;
+System.debug('O valor inteiro é: '+valorInteiro); */
+
+/* 2ª questão: Escreva um algoritmo que tenha nome de produto e preço exiba na tela os valores.
+String nomeProduto = 'biscoito';
+Decimal preco = 1.9;
+System.debug('O valor do '+nomeProduto+ ' é: R$'+ preco); */
+
+/* 3ª questão: Escreva um algoritmo que defina um valor inteiro e escreva (na tela) o seu antecessor.
+Integer valorInteiro = 1000;
+System.debug(--valorInteiro); */
+
+/* 4ª questão: Escreva um algoritmo que tenha dois valores reais, some os valores e exiba o resultado.
+Decimal valor1 = 14.99 , valor2 = 5.01;
+Decimal calculo = (valor1+valor2);
+System.debug('A valor da soma é: '+ calculo); */
+
+/* 5ª questão: Escreva um algoritmo que receba uma idade, subtraia do ano atual e exiba o resultado, mostrando ‘Nascido em (valorDaSubtração)’.
+Integer anoAtual = 2022, idade = 30;
+Integer valorDaSubtracao = (anoAtual-idade);
+system.debug('Nascido em ' + valorDaSubtracao); */
+
+/* 6ª questão: Escreva um algoritmo para definir as dimensões de um retângulo (base e altura), calcular e escrever a área do retângulo.
+Integer base = 20, altura = 15;
+Integer areaRetangulo = (base*altura); 
+System.debug('A área do retângulo é: '+areaRetangulo+ ' cm.'); */
+
+/* 7ª questão: Escreva um algoritmo para definir o salário mensal atual de um funcionário e o percentual de reajuste de 25%. Calcular e escrever o valor do novo salário com o acréscimo do reajuste.
+Integer salarioMensal= 1200;
+Decimal percentualReajuste= 0.045;
+Decimal salarioNovo = salarioMensal+(salarioMensal*percentualReajuste);
+System.debug('O novo salário é de: '+ salarioNovo); */
+
+/* 8ª questão: Escreva um algoritmo que atribua 3 notas, calcule a média e exiba o resultado.
+decimal n1 = 10, n2 = 7, n3 = 5;
+decimal media = (n1+n2+n3) / 3;
+system.debug('Média: '+media.setScale(2)); */
+
+/* 9ª questão: Faça um algoritmo que define três notas de um aluno, calcule e escreva a média final deste aluno. Considerar que a média é ponderada e que o peso das notas é 2, 3 e 5. Fórmula para o cálculo da média final é:
+decimal n1 = 7, n2 = 7.5, n3 = 6.5;
+decimal mediaFinalPonderada = ((n1*2)+(n2*3)+(n3*5)) / 10;
+system.debug('A média final é: '+ mediaFinalPonderada); */

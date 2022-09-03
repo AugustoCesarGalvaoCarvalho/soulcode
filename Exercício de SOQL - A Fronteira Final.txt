@@ -1,0 +1,75 @@
+1) Some os valores de todas as oportunidades que foram perdidas no ultimo mês e agrupe pelo motivo da perda.
+
+SELECT Account.Name, StageName, COUNT(Id), FORMAT(SUM(Amount))
+FROM Opportunity 
+WHERE StageName = 'ClosedLost' 
+AND CloseDate = LAST_MONTH
+GROUP BY Account.Name, StageName
+
+2) Retorne todos os contatos das contas que possuem contas pai.
+
+SELECT Id, Name, AccountId, Account.Name 
+FROM Contact
+
+ou
+
+SELECT Id, Name,
+(SELECT Id, Name
+FROM Contacts)
+FROM Account
+
+3) Retorne o número de registros de contatos da conta 'Restaurante Gifara'.
+
+SELECT Id, Name,
+(SELECT Name, AccountId
+FROM Contacts)
+FROM Account
+WHERE Name = 'Restaurante Gifara'
+
+ou
+
+SELECT Id, Name,
+(SELECT Id, Name
+FROM Contacts)
+FROM Account
+WHERE Name = 'Restaurante Gifara'
+
+4) Retorne o número de registros de Oportunidades  da conta 'Restaurante Gifara'. 
+
+SELECT Name, Id,
+(SELECT Name, AccountId
+FROM Opportunities)
+FROM Account
+WHERE Account.Name = 'Restaurante Gifara'
+
+ou
+
+SELECT Account.Name, COUNT(Id)
+FROM Opportunity
+WHERE Account.Name = 'Restaurante Gifara'
+GROUP BY Account.Name
+
+5) Selecione o Id e Nome dos tipos de registro do objeto Despesa e Oportunidade.
+
+SELECT Id, Name,
+(SELECT Id, Name 
+FROM Despesas__r),
+(SELECT id, Name 
+FROM Opportunities)
+FROM Account
+
+6) Selecione qual são os tipos de caso que são mais abertos durante o mês atual.
+
+SELECT Id, Name,
+(SELECT Id, CreatedDate 
+FROM Cases 
+WHERE CreatedDate = THIS_MONTH)
+FROM Account
+
+7) Selecione quais são as despesas criadas por empresas que estão inativas.
+
+SELECT Name, Active__c,
+(SELECT Name, FORMAT(Valor__c)
+FROM Despesas__r)
+FROM Account
+WHERE Active__c = 'No'

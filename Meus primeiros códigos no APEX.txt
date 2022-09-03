@@ -1,0 +1,34 @@
+//String nomeCliente = 'Zeca urubu';
+//System.debug(nomeCliente);
+
+//Integer alturaCliente = 50;
+//System.debug('A altura do cliente é de ' + alturaCliente + ' cm');
+
+//integer a = 10;
+//integer b = 15; 
+//integer resultado = (a+b);
+//System.debug('O resultado da soma de a+b é ' + resultado);
+//System.debug(a+b)
+
+//String Nome = 'Augusto'; 
+//Integer Idade = 30;     
+//String Cidade = 'Recife'; 
+//System.debug('Meu nome é ' + Nome + ', eu tenho ' + Idade + ' anos e moro na cidade de ' + Cidade + '.');
+
+//integer n = 100;
+
+//System.debug(n);
+//System.debug(++n);
+//significa que vamos aumentar 1, e depois mostrar
+//System.debug(--n);
+//significa que vamos diminuir 1, e depois mostrar
+//System.debug(--n);
+
+
+/*integer altura = 10, largura = 10;
+System.debug('A altura é ' + altura + ' e a largura é ' + largura + ' então:');
+integer resultado = (altura*largura);
+System.debug('a àrea do quadrado é ' + 'L² = l x l = ' + resultado);
+System.debug(--resultado);*/
+
+

@@ -1,0 +1,76 @@
+2) - Após a atualização de uma oportunidade, se o valor for maior ou igual a 50000 e a fase estiver fechada e ganha, 
+crie uma tarefa associada a ela, com o assunto: Parabenizar a empresa pela nova aquisição.
+
+trigger OpportunityTigger on Opportunity(after update) {
+    
+    List<Task> lstTask = new List<Task>();
+
+    for(Opportunity itemOpp : Trigger.new) {
+        if(itemOpp.Amount >= 50000 && itemOpp.StageName == 'Closed Won') {
+            Task newTask = new Task();
+
+            newTask.Subject = 'Parabens pela sua nova aquisição!';
+            newTask.WhatId = itemOpp.Id;
+            lstTask.add(newTask);
+        }
+        insert lstTask;
+    }
+}
+
+
+3) -  Após inserir um Lead, a receita anual estiver superior a 50000, criar uma tarefa com assunto verificar 
+se o cadastro está completo associado ao lead.
+
+trigger LeadTrigger on Lead(after update) {
+   
+    List<Task> lstTask = new List<Task>();
+    
+    for(Lead itemLead : Trigger.new) {
+        if(itemLead.AnnualRevenue > 50000) {
+            Task newTask = new Task();
+
+            newTask.Subject = 'Verificar se o cadastro está completo!';
+            newTask.WhoId = itemLead.Id;
+            lstTask.add(newTask);
+        }
+        insert lstTask;
+    }
+}
+
+
+4) - Se o número de funcionários no Lead for menor que 1000, colocar no campo Tamanho da Empresa ( Não existe ),
+colocar empresa pequena.
+
+trigger LeadTrigger on Lead(before insert, before update) {
+    
+    	for(Lead itemLead : Trigger.new) {
+    	if(itemLead.NumberOfEmployees < 1000) {
+    	itemLead.TamanhoEmpresa__c = 'Empresa pequena';
+        }
+    } 
+}
+
+5) - Criar uma trigger em Conta, caso o campo CNPJ não for preenchido dar um erro
+
+trigger AccountTrigger on Account (before insert, before update) {
+
+    for(Account itemAcc : Trigger.new) {
+        if(itemAcc.CNPJ__c == null){
+		itemAcc.addError('Por favor lindinho de Jesui, preencha o CNPJ.');
+		}
+	}
+}
+
+6) - Criar uma trigger para dar 10% de desconto nas oportunidades para conta que tem o campo VIP verdadeiro
+
+trigger OpportunityTrigger on Opportunity (before insert, before update) {
+
+    Account ItemConta = new Account();
+   
+    for(Opportunity itemOportunidade : Trigger.new){
+        if(itemConta.VIP__c = true){
+        decimal DescontoValor = ( itemOportunidade.Amount * 0.9 );
+        itemOportunidade.Amount = DescontoValor;
+        }
+    }
+}

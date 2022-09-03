@@ -1,0 +1,84 @@
+1) - Realize uma trigger onde ao criar uma oportunidade caso o valor da oportunidade seja >= a 100000 e <= 200000,
+a fase deve ser colocada automaticamente para value proposition, senão a fase deve ficar em prospecting.*/
+
+trigger OpportunityTigger on Opportunity(before insert) {
+  
+    for(Opportunity itemOppt : Trigger.new){
+        if(itemOppt.Amount >= 100000 && itemOppt.Amount <= 200000){
+           itemOppt.StageName = 'Value Proposition';    
+        }
+        else(itemOppt.StageName = 'Prospecting');{      
+        }
+    }    
+}
+
+2) - Realize uma trigger, que marque novas contas do setor de “Tecnologia” ou “Finanças” como “Hot” no sistema, 
+ajudando assim sua empresa a priorizar essas vendas.
+
+trigger AccountTrigger on Account (before insert, before update) {
+
+    for(Account itemAcc : Trigger.New){
+        if(itemAcc.Industry == 'Technology' || itemAcc.Industry == 'Finance'){
+           itemAcc.Rating = 'Hot';
+        }
+    }
+}
+
+3) - Toda vez que um contato for atualizado, colocar no campo Descrição qual foi o ultimo 
+usuário que modificou o contato e o data/hora que foi feito.
+
+trigger ContactTrigger on Contact (before insert, before update) {
+
+    String modificou;
+    Date deAgora = date.today();
+    
+    for(Contact itemContato : Trigger.new){
+        modificou = UserInfo.getUserName();
+        itemContato.Description = (modificou + ' ' + deAgora.format());
+    }
+}
+
+5) - Criar uma trigger em conta que copia as informações do Endereço de Cobrança para o Endereço de Entrega quando o mesmo não for preenchido.*/
+
+trigger AccountTrigger on Account (before insert, before update) {
+    
+    for(Account itemAcc : Trigger.new){
+        if(itemAcc.ShippingAddress    == null){
+           itemAcc.ShippingStreet     = itemAcc.BillingStreet;
+           itemAcc.ShippingCity       = itemAcc.BillingCity;
+           itemAcc.ShippingState      = itemAcc.BillingState;
+           itemAcc.ShippingPostalCode = itemAcc.BillingPostalCode;
+           itemAcc.ShippingCountry    = itemAcc.BillingCountry;
+        }
+    }
+}
+
+6) - Criar uma trigger em oportunidade para o caso o valor da oportunidade seja maior que 500000, 
+automaticamente a fase passa para negotiation/review.
+
+
+7) - Antes de inserir uma nova conta, faça:
+
+- Não permitir que a receita anual seja nula ou negativa.
+- Se receita anual < 100000, salvar classificação como cold.
+- Se receita anual >= 100000 e < 500000, salvar classificação como warm.
+- Se receita anual >=500000, classificação hot.
+
+trigger AccountTrigger on Account (before insert) {
+
+    for(Account itemAcc : is.Insert){
+
+        if(itemAcc.AnnualRevenue == null || itemAcc.AnnualRevenue < 0){
+           itemAcc.AnnualRevenue.addError('Essa receita anual não pode ser negativo.'); 
+
+        else if(itemAcc.AnnualRevenue < 100000 && itemAcc.AnnualRevenue > 0){
+           itemAcc.Rating = 'Cold';
+
+        else if(itemAcc.AnnualRevenue >=100000 && itemAcc.AnnualRevenue < 500000){
+           itemAcc.Rating = 'Warm'; 
+ 
+        else if(itemAcc.AnnualRevenue >= 500000){
+           itemAcc.Rating = 'Hot'; 
+        }
+    }    
+}

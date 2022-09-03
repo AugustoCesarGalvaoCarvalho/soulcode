@@ -1,0 +1,58 @@
+1.)
+Map<String, String> mapNOMEeSOBRE =  new Map<String, String>();
+
+mapNOMEeSOBRE.put('Augusto', 'Carvalho');
+mapNOMEeSOBRE.put('João', 'Galileu');
+
+String NOMEeSOBREaugusto = mapNOMEeSOBRE.get('Augusto');
+String NOMEeSOBREjoao = mapNOMEeSOBRE.get('João');
+
+
+2.)
+Map<String, String> mapNOMEHOBBIES =  new Map<String, String>();
+
+mapNOMEHOBBIES.put('Alfredo', 'Jogar PC, ler e treinar');
+mapNOMEHOBBIES.put('Kleberson', 'Correr de Kart, Correr de bike, correr e correr');
+
+String NOMEHOBBIESalfredo = mapNOMEHOBBIES.get('Alfredo');
+String NOMEHOBBIESkleberson = mapNOMEHOBBIES.get('Kleberson');
+
+
+3.)
+Map<String, Decimal> mapNOMEeALTURA =  new Map<String, Decimal>();
+
+mapNOMEALTURA.put('Kuka', 1.71);
+mapNOMEALTURA.put('Lorraine', 1.94);
+
+String Nome = mapNOMEALTURA.get('Kuka');
+Decimal Altura = mapNOMEALTURA.get('Loraine');
+
+
+
+(Ex1)
+//modo fácil
+Map<String, List<String>> mapNomeHobbies = new Map<String, List<String>>();
+
+List<String> Hobbies = new List<String>();
+Hobbies.add('Correr');
+Hobbies.add('Mergulhar');
+
+mapNomeHobbies.put('Pedro', Hobbies); 
+mapNomeHobbies.put('Maria Joaquina', Hobbies); 
+mapNomeHobbies.put('Cirilo', Hobbies);
+
+system.debug(mapNomeHobbies);
+
+ou 
+
+(Ex2)
+//modo difícil(real do dia a dia)
+Map<String, List<String>> mapNomeHobbies = new Map<String, List<String>>();
+
+List<String> hobbieCleiton = new List<String>();
+hobbieCleiton.add('Dançar'); 
+hobbieCleiton.add('Cantar'); 
+hobbieCleiton.add('Debochar');
+
+mapNomeHobbies.put('Cleiton',hobbieCleiton);
+

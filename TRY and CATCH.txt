@@ -1,0 +1,24 @@
+/* try{
+    Lead newlead = new Lead();
+    insert newlead;
+    system.debug('Consegui inserir o Lead');
+    
+}catch( DmlException erroDeDMLTriste ){
+    system.debug('Não foi possível adicionar um Lead, contate um administrador');
+    System.debug(erroDeDMLTriste);
+    System.debug(erroDeDMLTriste.getDmlMessage(0));
+
+} */
+
+
+try{
+    integer div = 10/0;
+    system.debug('Divisão realizada com sucesso: ' + div);
+//      
+}catch( MathException MathTriste ){
+    system.debug('Erro no cálculo');
+    
+    system.debug(MathTriste.getMessage());
+    
+}
+

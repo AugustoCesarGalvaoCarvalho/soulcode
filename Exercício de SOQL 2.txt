@@ -1,0 +1,45 @@
+1) Selecionar as oportunidades que serao fechadas esse mes
+
+SELECT Id, name, FORMAT(CreatedDate)
+FROM Opportunity
+WHERE CloseDate = THIS_MONTH 
+AND StageName = 'Closed Won'
+
+2) Selecionar as Despesas Criadas nos ultimos 42 dias
+
+SELECT Id, name, FORMAT(CreatedDate)
+FROM Despesa__c
+WHERE CreatedDate = LAST_N_DAYS:42
+
+3) Selecionar os leads criados entre 16 de julho ate 16 de agosto
+
+SELECT Id, Name, FORMAT(CreatedDate)
+FROM Lead
+WHERE CreatedDate >= 2022-07-16T00:00:00Z 
+AND CreatedDate <= 2022-08-16T23:59:59Z
+ORDER BY CreatedDate
+
+ou
+
+SELECT Id, Name, FORMAT(CreatedDate)
+FROM Lead
+WHERE CreatedDate >= N_DAYS_AGO:23 
+AND CreatedDate <= NEXT_N_DAYS:8
+ORDER BY CreatedDate
+
+4) Selecionar as contas VIP criadas entre julho e agosto
+
+SELECT Id, Name
+FROM Account
+WHERE VIP__c = TRUE 
+AND CreatedDate > 2022-07-01T00:00:00Z 
+AND CreatedDate < 2022-08-31T23:59:59Z
+
+ou
+
+SELECT ID, Name, FORMAT(CreatedDate)
+FROM Account
+WHERE VIP__c = true 
+AND CreatedDate >= 2022-07-01T00:00:00Z 
+AND CreatedDate <= 2022-08-31T23:59:59Z
+ORDER BY CreatedDate
