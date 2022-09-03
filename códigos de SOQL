@@ -1,0 +1,90 @@
+SELECT CNPJ__c, 
+       CPF__c, 
+       Documento__c  
+FROM Lead
+
+--------------------------//duas maneiras de fazer.... dá no mesmo-------------------------------------
+
+SELECT OrderNumber__c, AccountId, StageName  
+FROM Opportunity
+
+--------------------------------------------------------------------------------------------------------
+//Para filtrar
+
+SELECT Id, Name
+FROM Account
+WHERE  AnnualRevenue  >1000
+
+SELECT Id, Name, StageName, CloseDate 
+FROM Opportunity 
+WHERE Name = 'Edge Installation'
+
+WHERE Tipo__c != true
+WHERE Valor__c >= 500
+WHERE Tipo__c = 'Hospedagem'
+WHERE Name = 'Cleiton Rastha'
+
+Ex1: 
+SELECT Id, Name
+FROM Despesa__c
+WHERE Tipo__c = 'Hospedagem'
+
+Ex2:
+SELECT Id, CNPJ__c, CPF__c, RG__c
+FROM Lead
+WHERE Rating = 'Hot'
+
+Ex3: 
+SELECT Id, Name
+FROM Despesa__c
+WHERE Tipo__c = 'Hospedagem'
+AND Valor__C > 100
+AND Status_da_Aprova_o__c = 'Aprovado'
+
+//Ex4: SELECIONAR Contas que são VIP e tem a receita anual maior que 2000
+SELECT Id, Name
+FROM Account
+WHERE VIP = True
+AND AnnualRevenue > 2000
+
+Ex5: SELECIONAR LEAD que tem o Numero de funcionarios maior que 500 e a classificação seja Warm
+
+
+
+
+Ex6: 
+
+// Padrão do modelo SELECIONAR Nome, Nome da Conta DO OBJETO Contato
+
+                     SELECIONAR Id, Name, AccountName
+                     FROM contact
+
+                     SELECIONAR Id, Name, Account.Name
+                     FROM contact
+---------------------------------------------------------------------------------------------
+
+Ex7: 
+
+SELECT name, Valor__c 
+FROM Despesa__c 
+ORDER BY Valor__c ASC
+
+Ex8:
+
+SELECT name, Valor__c                                                 
+FROM Despesa__c                                        
+ORDER BY Valor__c ASC
+
+ou
+
+FROM Despesa__c                                        
+SELECT Name, Conta__c, Conta__r.AnnualRevenue 
+FROM Despesa__c 
+Order BY Conta__r.AnnualRevenue
+
+
+Ex9:
+
+SELECT Id, Name, Valor__c 
+FROM Despesas__c 
+ORDER BY Valor__c DESC NULLS LAST                    
